@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class GroundChecking : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform Point;
+    public float Radius;
+    public LayerMask GroundLayer;
+
+
+    public bool CheckGround()
     {
-        
+        if (Physics2D.OverlapCircle(Point.position, Radius, GroundLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
