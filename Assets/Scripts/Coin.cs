@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
@@ -15,7 +13,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Coin")|| collision.gameObject.CompareTag("Obstacle")) 
+        if (collision.gameObject.CompareTag("Coin") || collision.gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
         }

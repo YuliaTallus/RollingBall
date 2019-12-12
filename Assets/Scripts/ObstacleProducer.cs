@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ObstacleProducer : MonoBehaviour
 {
@@ -13,5 +11,4 @@ public class ObstacleProducer : MonoBehaviour
             Instantiate(Obstacle, new Vector2(Random.Range(_xMin, _xMax), _yPosition), Quaternion.identity);
         }
     }
-
 }

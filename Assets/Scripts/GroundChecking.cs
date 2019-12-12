@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GroundChecking : MonoBehaviour
 {
@@ -20,5 +18,4 @@ public class GroundChecking : MonoBehaviour
             return false;
         }
     }
-
 }

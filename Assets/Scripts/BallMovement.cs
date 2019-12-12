@@ -4,35 +4,35 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-    private Rigidbody2D m_rigidBall;
-    private float m_horizontalInput, _newPosition, _xMin = -6, _xMax = 200;
+    private Rigidbody2D _rigidBall;
+    private float _horizontalInput, _newPosition, _xMin = -6, _xMax = 200;
     public float Speed, JumpForce;
-    private GroundChecking m_groundChecker;
+    private GroundChecking _groundChecker;
 
     void Start()
     {
-        m_rigidBall = GetComponent<Rigidbody2D>();
-        m_groundChecker = GetComponent<GroundChecking>();
+        _rigidBall = GetComponent<Rigidbody2D>();
+        _groundChecker = GetComponent<GroundChecking>();
     }
 
     void Update()
     {
-        m_horizontalInput = Input.GetAxisRaw("Horizontal");
+        _horizontalInput = Input.GetAxisRaw("Horizontal");
 
         Jump();
 
-        m_rigidBall.velocity = new Vector2(m_horizontalInput * Speed, m_rigidBall.velocity.y);
-        _newPosition = Mathf.Clamp(m_rigidBall.position.x, _xMin, _xMax);
-        m_rigidBall.position = new Vector2(_newPosition, transform.position.y);
+        _rigidBall.velocity = new Vector2(_horizontalInput * Speed, _rigidBall.velocity.y);
+        _newPosition = Mathf.Clamp(_rigidBall.position.x, _xMin, _xMax);
+        _rigidBall.position = new Vector2(_newPosition, transform.position.y);
     }
 
     void Jump()
     {
         if (Input.GetButtonDown("Jump"))
         {
-            if (m_groundChecker.CheckGround())
+            if (_groundChecker.CheckGround())
             {
-                m_rigidBall.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
+                _rigidBall.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
             }
 
         }

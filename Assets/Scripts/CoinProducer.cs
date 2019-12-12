@@ -1,26 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CoinProducer : MonoBehaviour
 {
     public GameObject Coin;
     private float _yMin = -2f, _yMax = 1, _xMin = 0, _xMax = 20, _xOutOfDisplay = 10;
-    private GameObject[] coinsArray;
+    private GameObject[] _coinsArray;
 
     void Update()
     {
-        coinsArray = GameObject.FindGameObjectsWithTag("Coin");
+        _coinsArray = GameObject.FindGameObjectsWithTag("Coin");
 
-        if (coinsArray.Length < 3)
+        if (_coinsArray.Length < 3)
         {
             ProduceCoins();
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        
     }
 
     private void ProduceCoins()

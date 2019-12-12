@@ -14,7 +14,6 @@ public class Obstacle : MonoBehaviour
         if (collision.gameObject.CompareTag("Coin") || collision.gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
-            Debug.Log(collision.gameObject.tag);
         }
     }
 }
