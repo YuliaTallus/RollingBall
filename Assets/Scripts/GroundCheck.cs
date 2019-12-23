@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 
-public class GroundChecking : MonoBehaviour
+public class GroundCheck : MonoBehaviour
 {
+    [SerializeField]
     public Transform Point;
+
+    [SerializeField]
     public float Radius;
     public LayerMask GroundLayer;
-
 
     public bool CheckGround()
     {

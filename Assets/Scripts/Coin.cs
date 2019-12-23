@@ -2,18 +2,14 @@
 
 public class Coin : MonoBehaviour
 {
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ball"))
+        if (collision.gameObject.GetComponent<BallMovement>())
         {
             Destroy(gameObject, 0.1f);
         }
-    }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Coin") || collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.GetComponent<Coin>() || collision.gameObject.GetComponent<Obstacle>())
         {
             Destroy(gameObject);
         }

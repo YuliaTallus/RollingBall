@@ -1,40 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
     private Rigidbody2D _rigidBall;
-    private float _horizontalInput, _newPosition, _xMin = -6, _xMax = 200;
-    public float Speed, JumpForce;
-    private GroundChecking _groundChecker;
+    private float _horizontalInput;
+    private float _newPosition;
+    private float _xMin = -6;
+    private float _xMax = 200;
 
-    void Start()
+    public float Speed;
+    public float JumpForce;
+
+    private GroundCheck _groundChecker;
+
+    private void Start()
     {
         _rigidBall = GetComponent<Rigidbody2D>();
-        _groundChecker = GetComponent<GroundChecking>();
+        _groundChecker = GetComponent<GroundCheck>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         _horizontalInput = Input.GetAxisRaw("Horizontal");
+        if (Input.GetKeyDown("space"))
+        {
+            TryJump();
+        }
 
-        Jump();
-
-        _rigidBall.velocity = new Vector2(_horizontalInput * Speed, _rigidBall.velocity.y);
-        _newPosition = Mathf.Clamp(_rigidBall.position.x, _xMin, _xMax);
-        _rigidBall.position = new Vector2(_newPosition, transform.position.y);
+        MoveHorizontally(Speed);
     }
 
-    void Jump()
+    private void TryJump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (_groundChecker.CheckGround())
         {
-            if (_groundChecker.CheckGround())
-            {
-                _rigidBall.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
-            }
-
+            _rigidBall.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
         }
+    }
+
+    private void MoveHorizontally(float speed)
+    {
+        _rigidBall.velocity = new Vector2(_horizontalInput * speed, _rigidBall.velocity.y);
+        _newPosition = Mathf.Clamp(_rigidBall.position.x, _xMin, _xMax);
+        _rigidBall.position = new Vector2(_newPosition, transform.position.y);
     }
 }
