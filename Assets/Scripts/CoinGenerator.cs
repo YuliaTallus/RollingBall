@@ -2,17 +2,17 @@
 
 public class CoinGenerator : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _coin;
-
-    private float _yMin = -2f, _yMax = 1, _xMin = 0, _xMax = 20, _xOutOfDisplay = 10;
-    private GameObject[] _coins;
+    [SerializeField] private GameObject _coin;
+    private float _yMin = -2f, _yMax = 1;
+    private float _xMin = 0, _xMax = 20;
+    private float _xOutOfDisplay = 10;
+    private int _coinsAmount;
 
     private void Update()
     {
-        _coins = GameObject.FindGameObjectsWithTag("Coin");
+        _coinsAmount = FindObjectsOfType<Coin>().Length;
 
-        if (_coins.Length < 3)
+        if (_coinsAmount < 3)
         {
             GenerateCoins();
         }

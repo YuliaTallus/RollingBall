@@ -2,22 +2,12 @@
 
 public class GroundCheck : MonoBehaviour
 {
-    [SerializeField]
-    public Transform Point;
-
-    [SerializeField]
-    public float Radius;
+    [SerializeField] private Transform _point;
+    [SerializeField] private float _radius;
     public LayerMask GroundLayer;
 
     public bool CheckGround()
     {
-        if (Physics2D.OverlapCircle(Point.position, Radius, GroundLayer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return Physics2D.OverlapCircle(_point.position, _radius, GroundLayer);
     }
 }

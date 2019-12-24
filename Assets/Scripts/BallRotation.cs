@@ -4,7 +4,7 @@ public class BallRotation : MonoBehaviour
 {
     private Transform _rigidBall;
     private float _horizontalInput;
-    public float AngularSpeed;
+    [SerializeField] private float _angularSpeed;
 
     private void Start()
     {
@@ -14,6 +14,6 @@ public class BallRotation : MonoBehaviour
     private void FixedUpdate()
     {
         _horizontalInput = Input.GetAxisRaw("Horizontal");
-        _rigidBall.Rotate(new Vector3(0, 0, _horizontalInput) * AngularSpeed);
+        _rigidBall.Rotate(new Vector3(0, 0, _horizontalInput) * _angularSpeed);
     }
 }

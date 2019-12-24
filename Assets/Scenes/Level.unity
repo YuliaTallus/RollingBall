@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e415713a9f33ec74a88174cc4d07b410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 1750296487}
+  _target: {fileID: 1750296487}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -975,7 +975,7 @@ GameObject:
   - component: {fileID: 1197586106}
   - component: {fileID: 1197586107}
   m_Layer: 0
-  m_Name: CoinProducer
+  m_Name: CoinGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1077,8 +1077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd08e9d9f7ed1942b4351d20874ad4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinAmountToUI: {fileID: 1572674586}
-  Score: {fileID: 399206655}
+  _coinAmountToUI: {fileID: 1572674586}
+  _score: {fileID: 399206655}
 --- !u!1 &1531449747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1218,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5684b32ebce3948976e54b91e553b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1423169443}
+        m_MethodName: DisplayCoinAmount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1573954360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,8 +1418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45993848334635d4a9e4412a8a304263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Point: {fileID: 1573954361}
-  Radius: 1
+  _point: {fileID: 1573954361}
+  _radius: 1
   GroundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -1419,8 +1435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ecafff75c69dc49b9138f020a57a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
-  JumpForce: 10
+  _speed: 5
+  _jumpForce: 10
 --- !u!50 &1750296490
 Rigidbody2D:
   serializedVersion: 4
@@ -1659,7 +1675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f24977937b73d24782463fdf8c6a813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obstacle: {fileID: 8639383228905849811, guid: b948b26265ae60341a2233096405c1c5,
+  _obstacle: {fileID: 8639383228905849811, guid: b948b26265ae60341a2233096405c1c5,
     type: 3}
 --- !u!1 &1991371283
 GameObject:
@@ -2071,7 +2087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2bc4a2b403e8e04bb2ad4e8f99d0eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AngularSpeed: -10
+  _angularSpeed: -7
 --- !u!1 &2098908287
 GameObject:
   m_ObjectHideFlags: 0

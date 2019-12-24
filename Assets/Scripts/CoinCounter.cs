@@ -1,8 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class CoinCounter : MonoBehaviour
 {
-    public int CoinAmount { get; private set; }
+    public UnityEvent OnChange;
+
+    private int _coinAmount;
+
+    public int CoinAmount
+    {
+        get
+        {
+            return _coinAmount;
+        }
+        private set
+        {
+            _coinAmount = value;
+            OnChange.Invoke();
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

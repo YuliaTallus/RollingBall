@@ -7,10 +7,8 @@ public class BallMovement : MonoBehaviour
     private float _newPosition;
     private float _xMin = -6;
     private float _xMax = 200;
-
-    public float Speed;
-    public float JumpForce;
-
+    [SerializeField] private float _speed;
+    [SerializeField] private float _jumpForce;
     private GroundCheck _groundChecker;
 
     private void Start()
@@ -27,14 +25,14 @@ public class BallMovement : MonoBehaviour
             TryJump();
         }
 
-        MoveHorizontally(Speed);
+        MoveHorizontally(_speed);
     }
 
     private void TryJump()
     {
         if (_groundChecker.CheckGround())
         {
-            _rigidBall.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
+            _rigidBall.AddForce(transform.up * _jumpForce, ForceMode2D.Impulse);
         }
     }
 

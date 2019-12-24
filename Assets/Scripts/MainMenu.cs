@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public Animator AuthorsAnimator;
+    [SerializeField] private Animator _authorsAnimator;
+
     public void Play()
     {
         SceneManager.LoadScene(0);
@@ -11,7 +12,7 @@ public class MainMenu : MonoBehaviour
 
     public void ChangeAuthorsStatus()
     {
-        AuthorsAnimator.SetBool("IsOpen", !AuthorsAnimator.GetBool("IsOpen"));
+        _authorsAnimator.SetBool("IsOpen", !_authorsAnimator.GetBool("IsOpen"));
     }
 
     public void Exit()

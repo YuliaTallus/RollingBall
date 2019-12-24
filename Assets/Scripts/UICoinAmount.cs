@@ -3,19 +3,11 @@ using TMPro;
 
 public class UICoinAmount : MonoBehaviour
 {
-    [SerializeField]
-    private CoinCounter CoinAmountToUI;
+    [SerializeField] private CoinCounter _coinAmountToUI;
+    [SerializeField] private TMP_Text _score;
 
-    [SerializeField]
-    private TMP_Text Score;
-
-    private void Update()
+    public void DisplayCoinAmount()
     {
-        Score.text = CoinAmountToUI.CoinAmount.ToString();
-    }
-
-    private void DisplayCoinAmount() 
-    {
-        Score.text = CoinAmountToUI.CoinAmount.ToString();
+        _score.text = _coinAmountToUI.CoinAmount.ToString();
     }
 }
