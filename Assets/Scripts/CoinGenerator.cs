@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class CoinGenerator : MonoBehaviour
 {
@@ -6,29 +7,32 @@ public class CoinGenerator : MonoBehaviour
     private float _yMin = -2f, _yMax = 1;
     private float _xMin = 0, _xMax = 20;
     private float _xOutOfDisplay = 10;
-    private int _coinsAmount;
+    private static List<Coin> _coinsOnScene = new List<Coin>();
 
     private void Update()
     {
-        _coinsAmount = FindObjectsOfType<Coin>().Length;
-
-        if (_coinsAmount < 3)
+        if (_coinsOnScene.Count < 3)
         {
             GenerateCoins();
         }
     }
-
     private void GenerateCoins()
     {
         for (int i = 0; i < 10; i++)
         {
-            Instantiate(_coin, GetRamdomPositionOnScreen(), Quaternion.identity);
+            Coin coin = Instantiate(_coin, GetRamdomPositionOnScreen(), Quaternion.identity).GetComponent<Coin>();
+            _coinsOnScene.Add(coin);
         }
     }
 
     private Vector2 GetRamdomPositionOnScreen()
     {
         return new Vector2(transform.position.x + Random.Range(_xMin, _xMax) + _xOutOfDisplay, Random.Range(_yMin, _yMax));
+    }
+
+    public void DeleteCoin(Coin coin)
+    {
+        _coinsOnScene.Remove(coin);
     }
 }
 

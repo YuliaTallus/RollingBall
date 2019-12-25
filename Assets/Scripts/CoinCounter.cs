@@ -4,7 +4,6 @@ using UnityEngine.Events;
 public class CoinCounter : MonoBehaviour
 {
     public UnityEvent OnChange;
-
     private int _coinAmount;
 
     public int CoinAmount
