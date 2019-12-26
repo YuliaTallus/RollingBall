@@ -20,7 +20,7 @@ public class BallMovement : MonoBehaviour
     private void FixedUpdate()
     {
         _horizontalInput = Input.GetAxisRaw("Horizontal");
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             TryJump();
         }
