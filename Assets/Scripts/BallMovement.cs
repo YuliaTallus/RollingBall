@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(GroundCheck))]
+[RequireComponent(typeof(Rigidbody2D))]
+
 public class BallMovement : MonoBehaviour
 {
+    [SerializeField] private float _speed;
+    [SerializeField] private float _jumpForce;
+
     private Rigidbody2D _rigidBall;
-    private float _horizontalInput;
+    private GroundCheck _groundChecker;
     private float _newPosition;
     private float _xMin = -6;
     private float _xMax = 200;
-    [SerializeField] private float _speed;
-    [SerializeField] private float _jumpForce;
-    private GroundCheck _groundChecker;
 
     private void Start()
     {
@@ -19,7 +22,6 @@ public class BallMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _horizontalInput = Input.GetAxisRaw("Horizontal");
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TryJump();
@@ -38,7 +40,7 @@ public class BallMovement : MonoBehaviour
 
     private void MoveHorizontally(float speed)
     {
-        _rigidBall.velocity = new Vector2(_horizontalInput * speed, _rigidBall.velocity.y);
+        _rigidBall.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, _rigidBall.velocity.y);
         _newPosition = Mathf.Clamp(_rigidBall.position.x, _xMin, _xMax);
         _rigidBall.position = new Vector2(_newPosition, transform.position.y);
     }

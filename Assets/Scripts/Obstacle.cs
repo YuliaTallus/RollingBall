@@ -2,7 +2,7 @@
 
 public class Obstacle : MonoBehaviour
 {
-    private float _scaleMin = 1, _scaleMax = 3;
+    private float _scaleMin = 1, _scaleMax = 2.5f;
 
     private void Start()
     {
