@@ -11,11 +11,5 @@ public class Coin : MonoBehaviour
             _coinGenerator.DeleteCoin(gameObject.GetComponent<Coin>());
             Destroy(gameObject, 0.1f);
         }
-
-        if (collision.gameObject.GetComponent<Coin>() || collision.gameObject.GetComponent<Obstacle>())
-        {
-            _coinGenerator.DeleteCoin(gameObject.GetComponent<Coin>());
-            Destroy(gameObject);
-        }
     }
 }

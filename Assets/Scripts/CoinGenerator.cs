@@ -20,8 +20,13 @@ public class CoinGenerator : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            Coin coin = Instantiate(_coin, GetRamdomPositionOnScreen(), Quaternion.identity).GetComponent<Coin>();
-            _coinsOnScene.Add(coin);
+            Vector2 _randomPosition = GetRamdomPositionOnScreen();
+            if (!isCoinOrObstacleIntersect(_randomPosition))
+            {
+                Coin coin = Instantiate(_coin, _randomPosition, Quaternion.identity).GetComponent<Coin>();
+                _coinsOnScene.Add(coin);
+            }
+
         }
     }
 
@@ -33,6 +38,12 @@ public class CoinGenerator : MonoBehaviour
     public void DeleteCoin(Coin coin)
     {
         _coinsOnScene.Remove(coin);
+    }
+
+    private bool isCoinOrObstacleIntersect(Vector2 position)
+    {
+        float radiusToCheck = 0.5f;
+        return Physics2D.OverlapCircle(position, radiusToCheck);
     }
 }
 
