@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class CoinGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject _coin;
+
     private float _yMin = -2f, _yMax = 1;
     private float _xMin = 0, _xMax = 20;
     private float _xOutOfDisplay = 10;
@@ -16,6 +17,7 @@ public class CoinGenerator : MonoBehaviour
             GenerateCoins();
         }
     }
+
     private void GenerateCoins()
     {
         for (int i = 0; i < 10; i++)
@@ -26,7 +28,6 @@ public class CoinGenerator : MonoBehaviour
                 Coin coin = Instantiate(_coin, _randomPosition, Quaternion.identity).GetComponent<Coin>();
                 _coinsOnScene.Add(coin);
             }
-
         }
     }
 

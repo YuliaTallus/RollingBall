@@ -6,7 +6,12 @@ public class UICoinAmount : MonoBehaviour
     [SerializeField] private CoinCounter _coinAmountToUI;
     [SerializeField] private TMP_Text _score;
 
-    public void DisplayCoinAmount()
+    private void Awake()
+    {
+        _coinAmountToUI.Changed += DisplayCoinAmount;
+    }
+
+    private void DisplayCoinAmount()
     {
         _score.text = _coinAmountToUI.CoinAmount.ToString();
     }
