@@ -4,6 +4,7 @@ public class GroundCheck : MonoBehaviour
 {
     [SerializeField] private Transform _point;
     [SerializeField] private float _radius;
+
     public LayerMask GroundLayer;
 
     public bool CheckGround()

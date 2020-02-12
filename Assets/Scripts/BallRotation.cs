@@ -14,6 +14,6 @@ public class BallRotation : MonoBehaviour
     private void FixedUpdate()
     {
         float _horizontalInput = Input.GetAxisRaw("Horizontal");
-        _transform.Rotate(new Vector3(0, 0, _horizontalInput) * _angularSpeed);
+        _transform.Rotate(new Vector3(0, 0, Mathf.Clamp(_horizontalInput, 0, 1)) * _angularSpeed);
     }
 }

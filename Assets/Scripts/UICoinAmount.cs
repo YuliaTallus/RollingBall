@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using TMPro;
 
 public class UICoinAmount : MonoBehaviour
@@ -13,6 +14,6 @@ public class UICoinAmount : MonoBehaviour
 
     private void DisplayCoinAmount()
     {
-        _score.text = _coinAmountToUI.CoinAmount.ToString();
+        _score.text = _coinAmountToUI.CoinsAmount.ToString();
     }
 }

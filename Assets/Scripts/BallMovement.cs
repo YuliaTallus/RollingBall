@@ -2,6 +2,7 @@
 
 [RequireComponent(typeof(GroundCheck))]
 [RequireComponent(typeof(Rigidbody2D))]
+
 public class BallMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
@@ -9,7 +10,6 @@ public class BallMovement : MonoBehaviour
 
     private Rigidbody2D _rigidBall;
     private GroundCheck _groundChecker;
-    private float _xMin = -6;
     private float _xMax = 200;
 
     private void Start()
@@ -40,8 +40,9 @@ public class BallMovement : MonoBehaviour
 
     private void MoveHorizontally(float speed, float horizontalInput)
     {
-        _rigidBall.velocity = new Vector2(horizontalInput * speed, _rigidBall.velocity.y);
-        float _newPosition = Mathf.Clamp(_rigidBall.position.x, _xMin, _xMax);
-        _rigidBall.position = new Vector2(_newPosition, transform.position.y);
+
+        _rigidBall.velocity = new Vector2(Mathf.Clamp(horizontalInput, 0, 1) * speed, _rigidBall.velocity.y);
+        float clumpedX = Mathf.Clamp(_rigidBall.position.x, _rigidBall.position.x, _xMax);
+        _rigidBall.position = new Vector2(clumpedX, transform.position.y);
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class CoinCounter : MonoBehaviour
 {
-    public int CoinAmount { get; private set; }
+    public int CoinsAmount { get; private set; }
 
     public event UnityAction Changed;
 
@@ -11,7 +11,7 @@ public class CoinCounter : MonoBehaviour
     {
         if (other.GetComponent<Coin>())
         {
-            CoinAmount++;
+            CoinsAmount++;
             Changed();
         }
     }
