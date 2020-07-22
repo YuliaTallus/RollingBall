@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class Coin : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<BallMovement>())
         {
-            Destroy(gameObject, 0.1f);
+            gameObject.SetActive(false);
         }
     }
 }

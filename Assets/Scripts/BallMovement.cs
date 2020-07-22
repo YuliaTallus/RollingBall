@@ -45,4 +45,5 @@ public class BallMovement : MonoBehaviour
         float clumpedX = Mathf.Clamp(_rigidBall.position.x, _rigidBall.position.x, _xMax);
         _rigidBall.position = new Vector2(clumpedX, transform.position.y);
     }
+
 }
